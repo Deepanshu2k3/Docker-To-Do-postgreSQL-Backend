@@ -26,3 +26,18 @@ services:
       DB_USER: user
       DB_PASS: password
       DB_NAME: tododb
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: deepanshu@deepanshu.com
+      PGADMIN_DEFAULT_PASSWORD: deepanshu
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  pgadmin-data:
